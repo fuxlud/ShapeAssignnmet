@@ -17,6 +17,18 @@ class BreedListViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let breedPictureViewController = segue.destination as? BreedPictureViewController {
+            guard let breed = sender as? Breed else {
+                return
+            }
+            
+            let breedPictureViewModel = BreedPictureViewModel(with: breed)
+            breedPictureViewController.viewModel = breedPictureViewModel
+            breedPictureViewController.title = breed.name
+        }
+    }
 }
 
 extension BreedListViewController: UITableViewDataSource {

@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
 
-class BreedPictureViewController: UIViewController {
-    
+class BreedPictureViewController: UICollectionViewController {
+    public var viewModel: BreedPictureViewModel?
 }
