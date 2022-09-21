@@ -21,6 +21,7 @@ class BreedListViewController: UIViewController {
 
 extension BreedListViewController: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(viewModel.numberOfBreeds)
         return viewModel.numberOfBreeds
     }
 
