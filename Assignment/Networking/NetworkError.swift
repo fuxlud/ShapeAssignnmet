@@ -5,5 +5,5 @@ public enum NetworkError: Swift.Error {
     case noData
     case unknown
     case noDataInSuccesfulRequest
-    case noTokenWhenNeeded
+    case parcingError
 }
