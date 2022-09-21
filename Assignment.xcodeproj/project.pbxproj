@@ -7,23 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		382DE43328DB353A001E88C9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43228DB353A001E88C9 /* Breed.swift */; };
+		382DE43528DB3D38001E88C9 /* NetworkHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43428DB3D38001E88C9 /* NetworkHost.swift */; };
+		382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43628DB3EB2001E88C9 /* Extensions.swift */; };
+		382DE43928DB85EE001E88C9 /* BreedPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43828DB85EE001E88C9 /* BreedPictureViewModel.swift */; };
+		382DE43B28DB8601001E88C9 /* BreedPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43A28DB8601001E88C9 /* BreedPictureViewController.swift */; };
+		382DE43F28DB8950001E88C9 /* URLSession_asyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43E28DB8950001E88C9 /* URLSession_asyncAwait.swift */; };
 		387B3EE928DB0EED005D100A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EE828DB0EED005D100A /* AppDelegate.swift */; };
 		387B3EEB28DB0EED005D100A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EEA28DB0EED005D100A /* SceneDelegate.swift */; };
-		387B3EED28DB0EED005D100A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EEC28DB0EED005D100A /* ViewController.swift */; };
 		387B3EF028DB0EED005D100A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387B3EEE28DB0EED005D100A /* Main.storyboard */; };
 		387B3EF228DB0EF0005D100A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387B3EF128DB0EF0005D100A /* Assets.xcassets */; };
 		387B3EF528DB0EF0005D100A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387B3EF328DB0EF0005D100A /* LaunchScreen.storyboard */; };
+		387B3F1528DB1296005D100A /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EFE28DB1296005D100A /* EndPoints.swift */; };
+		387B3F1628DB1296005D100A /* NetworkScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EFF28DB1296005D100A /* NetworkScheme.swift */; };
+		387B3F1728DB1296005D100A /* DataRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F0028DB1296005D100A /* DataRequestProtocol.swift */; };
+		387B3F1828DB1296005D100A /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F0128DB1296005D100A /* NetworkRouter.swift */; };
+		387B3F1A28DB1296005D100A /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F0328DB1296005D100A /* HTTPMethod.swift */; };
+		387B3F1B28DB1296005D100A /* BreedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F0528DB1296005D100A /* BreedsRequest.swift */; };
+		387B3F2428DB1296005D100A /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F0E28DB1296005D100A /* WebService.swift */; };
+		387B3F2528DB1296005D100A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F0F28DB1296005D100A /* Request.swift */; };
+		387B3F2628DB1296005D100A /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F1028DB1296005D100A /* NetworkLogger.swift */; };
+		387B3F2728DB1296005D100A /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F1128DB1296005D100A /* RequestConstants.swift */; };
+		387B3F2828DB1296005D100A /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F1228DB1296005D100A /* RequestType.swift */; };
+		387B3F2928DB1296005D100A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3F1328DB1296005D100A /* NetworkError.swift */; };
+		38AC4BAA28DB29150087157A /* BreedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4BA928DB29150087157A /* BreedListViewController.swift */; };
+		38AC4BAC28DB29CD0087157A /* BreedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4BAB28DB29CD0087157A /* BreedListViewModel.swift */; };
+		38AC4BAE28DB29E40087157A /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4BAD28DB29E40087157A /* BreedTableViewCell.swift */; };
+		38AC4BB028DB29F20087157A /* BreedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC4BAF28DB29F20087157A /* BreedCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		382DE43228DB353A001E88C9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		382DE43428DB3D38001E88C9 /* NetworkHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHost.swift; sourceTree = "<group>"; };
+		382DE43628DB3EB2001E88C9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		382DE43828DB85EE001E88C9 /* BreedPictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureViewModel.swift; sourceTree = "<group>"; };
+		382DE43A28DB8601001E88C9 /* BreedPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureViewController.swift; sourceTree = "<group>"; };
+		382DE43E28DB8950001E88C9 /* URLSession_asyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession_asyncAwait.swift; sourceTree = "<group>"; };
 		387B3EE528DB0EED005D100A /* Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387B3EE828DB0EED005D100A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387B3EEA28DB0EED005D100A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		387B3EEC28DB0EED005D100A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		387B3EEF28DB0EED005D100A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		387B3EF128DB0EF0005D100A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		387B3EF428DB0EF0005D100A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		387B3EF628DB0EF0005D100A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		387B3EFE28DB1296005D100A /* EndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		387B3EFF28DB1296005D100A /* NetworkScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkScheme.swift; sourceTree = "<group>"; };
+		387B3F0028DB1296005D100A /* DataRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequestProtocol.swift; sourceTree = "<group>"; };
+		387B3F0128DB1296005D100A /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		387B3F0328DB1296005D100A /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		387B3F0528DB1296005D100A /* BreedsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedsRequest.swift; sourceTree = "<group>"; };
+		387B3F0E28DB1296005D100A /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		387B3F0F28DB1296005D100A /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		387B3F1028DB1296005D100A /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		387B3F1128DB1296005D100A /* RequestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
+		387B3F1228DB1296005D100A /* RequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		387B3F1328DB1296005D100A /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		38AC4BA928DB29150087157A /* BreedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListViewController.swift; sourceTree = "<group>"; };
+		38AC4BAB28DB29CD0087157A /* BreedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListViewModel.swift; sourceTree = "<group>"; };
+		38AC4BAD28DB29E40087157A /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
+		38AC4BAF28DB29F20087157A /* BreedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		382DE43128DB3450001E88C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				382DE43228DB353A001E88C9 /* Breed.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		387B3EDC28DB0EED005D100A = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +106,85 @@
 		387B3EE728DB0EED005D100A /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
-				387B3EE828DB0EED005D100A /* AppDelegate.swift */,
-				387B3EEA28DB0EED005D100A /* SceneDelegate.swift */,
-				387B3EEC28DB0EED005D100A /* ViewController.swift */,
 				387B3EEE28DB0EED005D100A /* Main.storyboard */,
-				387B3EF128DB0EF0005D100A /* Assets.xcassets */,
-				387B3EF328DB0EF0005D100A /* LaunchScreen.storyboard */,
+				387B3F5728DB1E90005D100A /* BreedList */,
+				387B3F5928DB1EA1005D100A /* BreedPictures */,
+				38AC4BA828DB1F510087157A /* FavoritePictures */,
+				387B3F5828DB1E98005D100A /* General */,
+				382DE43128DB3450001E88C9 /* Model */,
+				387B3EFD28DB1296005D100A /* Networking */,
 				387B3EF628DB0EF0005D100A /* Info.plist */,
 			);
 			path = Assignment;
+			sourceTree = "<group>";
+		};
+		387B3EFD28DB1296005D100A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				387B3F0428DB1296005D100A /* Requests */,
+				387B3EFF28DB1296005D100A /* NetworkScheme.swift */,
+				382DE43428DB3D38001E88C9 /* NetworkHost.swift */,
+				387B3EFE28DB1296005D100A /* EndPoints.swift */,
+				387B3F0028DB1296005D100A /* DataRequestProtocol.swift */,
+				387B3F0128DB1296005D100A /* NetworkRouter.swift */,
+				387B3F0328DB1296005D100A /* HTTPMethod.swift */,
+				387B3F0E28DB1296005D100A /* WebService.swift */,
+				387B3F0F28DB1296005D100A /* Request.swift */,
+				387B3F1028DB1296005D100A /* NetworkLogger.swift */,
+				387B3F1128DB1296005D100A /* RequestConstants.swift */,
+				387B3F1228DB1296005D100A /* RequestType.swift */,
+				387B3F1328DB1296005D100A /* NetworkError.swift */,
+				382DE43E28DB8950001E88C9 /* URLSession_asyncAwait.swift */,
+			);
+			name = Networking;
+			path = ../../../Assignment/Assignment/Networking;
+			sourceTree = "<group>";
+		};
+		387B3F0428DB1296005D100A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				387B3F0528DB1296005D100A /* BreedsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		387B3F5728DB1E90005D100A /* BreedList */ = {
+			isa = PBXGroup;
+			children = (
+				38AC4BA928DB29150087157A /* BreedListViewController.swift */,
+				38AC4BAB28DB29CD0087157A /* BreedListViewModel.swift */,
+				38AC4BAD28DB29E40087157A /* BreedTableViewCell.swift */,
+				38AC4BAF28DB29F20087157A /* BreedCellViewModel.swift */,
+			);
+			path = BreedList;
+			sourceTree = "<group>";
+		};
+		387B3F5828DB1E98005D100A /* General */ = {
+			isa = PBXGroup;
+			children = (
+				387B3EF128DB0EF0005D100A /* Assets.xcassets */,
+				387B3EF328DB0EF0005D100A /* LaunchScreen.storyboard */,
+				387B3EE828DB0EED005D100A /* AppDelegate.swift */,
+				387B3EEA28DB0EED005D100A /* SceneDelegate.swift */,
+				382DE43628DB3EB2001E88C9 /* Extensions.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		387B3F5928DB1EA1005D100A /* BreedPictures */ = {
+			isa = PBXGroup;
+			children = (
+				382DE43A28DB8601001E88C9 /* BreedPictureViewController.swift */,
+				382DE43828DB85EE001E88C9 /* BreedPictureViewModel.swift */,
+			);
+			path = BreedPictures;
+			sourceTree = "<group>";
+		};
+		38AC4BA828DB1F510087157A /* FavoritePictures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FavoritePictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +258,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387B3EED28DB0EED005D100A /* ViewController.swift in Sources */,
+				382DE43F28DB8950001E88C9 /* URLSession_asyncAwait.swift in Sources */,
+				387B3F2628DB1296005D100A /* NetworkLogger.swift in Sources */,
+				38AC4BAA28DB29150087157A /* BreedListViewController.swift in Sources */,
+				387B3F2728DB1296005D100A /* RequestConstants.swift in Sources */,
+				387B3F1628DB1296005D100A /* NetworkScheme.swift in Sources */,
 				387B3EE928DB0EED005D100A /* AppDelegate.swift in Sources */,
+				38AC4BAE28DB29E40087157A /* BreedTableViewCell.swift in Sources */,
+				387B3F2928DB1296005D100A /* NetworkError.swift in Sources */,
+				387B3F1528DB1296005D100A /* EndPoints.swift in Sources */,
+				382DE43528DB3D38001E88C9 /* NetworkHost.swift in Sources */,
+				387B3F1A28DB1296005D100A /* HTTPMethod.swift in Sources */,
+				387B3F2428DB1296005D100A /* WebService.swift in Sources */,
 				387B3EEB28DB0EED005D100A /* SceneDelegate.swift in Sources */,
+				387B3F1B28DB1296005D100A /* BreedsRequest.swift in Sources */,
+				382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */,
+				382DE43B28DB8601001E88C9 /* BreedPictureViewController.swift in Sources */,
+				382DE43928DB85EE001E88C9 /* BreedPictureViewModel.swift in Sources */,
+				382DE43328DB353A001E88C9 /* Breed.swift in Sources */,
+				387B3F1728DB1296005D100A /* DataRequestProtocol.swift in Sources */,
+				38AC4BAC28DB29CD0087157A /* BreedListViewModel.swift in Sources */,
+				38AC4BB028DB29F20087157A /* BreedCellViewModel.swift in Sources */,
+				387B3F2828DB1296005D100A /* RequestType.swift in Sources */,
+				387B3F2528DB1296005D100A /* Request.swift in Sources */,
+				387B3F1828DB1296005D100A /* NetworkRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
