@@ -13,10 +13,5 @@ class BreedListViewModel {
     func fetchBreeds() async throws {
         let fetchedBreeds = try await dogsService.getAllBreeds()
         breeds = fetchedBreeds
-    }
-    
-    var numberOfBreeds: Int {
-        return breeds.count
-    }
-    
+    }    
 }

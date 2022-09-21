@@ -13,7 +13,7 @@ class BreedListViewController: UIViewController {
                 try await viewModel.fetchBreeds()
                 tableView?.reloadData()
             } catch {
-                ()
+                showError(error: error)
             }
         }
     }
@@ -21,8 +21,7 @@ class BreedListViewController: UIViewController {
 
 extension BreedListViewController: UITableViewDataSource {
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.numberOfBreeds)
-        return viewModel.numberOfBreeds
+        return viewModel.breeds.count
     }
 
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
