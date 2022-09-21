@@ -15,10 +15,7 @@ public extension RequestTypeProtocol {
         let data = try await router.request(request)
 
         if let responseData = data, // String(data: data!, encoding: .utf8)
-           let wrappedResponse = try? JSONDecoder().decode([String: ResponseType].self, from: responseData),
-           let decodedData = wrappedResponse[RequestKeys.result.rawValue] {
-            return decodedData
-
+           let response = try? JSONDecoder().decode(ResponseType.self, from: responseData) {            return response
         } else {
             throw RequestError.badlyFormattedResponse
         }
