@@ -13,7 +13,7 @@ actor FavoritesManager: FavoritesManaging {
     var favoritesByBreed: [String: [URL]] = [:]
     let allKey = "All"
     
-    private init() {
+    init() {
         favoritesByBreed[allKey] = []
     }
     

@@ -6,11 +6,11 @@ class FavoritePicturesViewModel {
     private var favoritesManager: FavoritesManaging
     private(set) var favoriteBreeds: [String] = []
     
-    init(favoritesManager: FavoritesManaging) {
+    init(favoritesManager: FavoritesManaging = FavoritesManager.shared) {
         self.favoritesManager = favoritesManager
     }
     
-    func getFavoriteBreeds() async{
+    func getFavoriteBreeds() async {
         favoriteBreeds = await favoritesManager.getFavoriteBreeds()
     }
 }
