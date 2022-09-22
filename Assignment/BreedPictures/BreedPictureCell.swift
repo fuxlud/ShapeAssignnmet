@@ -8,6 +8,7 @@ class BreedPictureCell: UICollectionViewCell {
     private var viewModel: BreedPictureCellViewModel?
         
     func setupView(viewModel: BreedPictureCellViewModel) {
+        imageView?.image = nil
         self.viewModel = viewModel //TODO: Consider removing
         
         Task {
