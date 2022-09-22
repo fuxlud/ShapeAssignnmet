@@ -34,3 +34,7 @@ struct Breed: Decodable {
 struct BreedsRespose: Decodable {
     let message: Breeds
 }
+
+struct BreedImagesResponce: Decodable {
+    let message: [URL]
+}

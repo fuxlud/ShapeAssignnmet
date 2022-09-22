@@ -14,7 +14,7 @@ class BreedPictureViewModel {
     }
     
     func fetchImages() async throws {
-        let fetchedImageUrls = try await dogImagesService.getBreedImages()
+        let fetchedImageUrls = try await dogImagesService.getBreedImages(breed: breed.name)
         imageURLs = fetchedImageUrls
     }
 }
