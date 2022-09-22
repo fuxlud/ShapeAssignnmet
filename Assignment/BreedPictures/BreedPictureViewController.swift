@@ -32,7 +32,7 @@ extension BreedPictureViewController: UICollectionViewDataSource {
         
         let breedCellViewModel = BreedPictureCellViewModel(with: imageURL)
 
-        cell.setupView(viewModel: breedCellViewModel)
+        cell.setupView(viewModel: breedCellViewModel, indexPath: indexPath)
         return cell
     }
     
