@@ -5,11 +5,13 @@ class BreedPictureCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView?
     
+    private var viewModel: BreedPictureCellViewModel?
     private var indexPath: IndexPath?
     
     func setupView(viewModel: BreedPictureCellViewModel, indexPath: IndexPath) {
         self.indexPath = indexPath
         imageView?.image = nil
+        self.viewModel = viewModel
         
         Task {
             do {
@@ -21,5 +23,9 @@ class BreedPictureCell: UICollectionViewCell {
                 // some error image
             }
         }
+    }
+    
+    @IBAction func imageTapped(_ sender: Any) {
+        viewModel?.imageTapped()
     }
 }

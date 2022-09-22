@@ -33,6 +33,9 @@ actor FavoritesManager: FavoritesManaging {
     
     private func addImageToFavoritesByBreed(url: URL, breed: String) {
         var thisBreedFavorites = favoritesByBreed[breed]
+        if thisBreedFavorites == nil {
+            thisBreedFavorites = []
+        }
         thisBreedFavorites?.append(url)
         favoritesByBreed[breed] = thisBreedFavorites
     }
