@@ -8,6 +8,7 @@ class BreedTableViewCell: UITableViewCell {
     private var viewModel: BreedCellViewModel?
         
     func setupView(viewModel: BreedCellViewModel) {
+        self.viewModel = viewModel //TODO: Consider removing
         breedNameLabel.text = viewModel.breedName
     }
 }
