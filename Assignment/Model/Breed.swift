@@ -30,7 +30,6 @@ struct Breed: Decodable {
     let name: String
 }
 
-
 struct BreedsRespose: Decodable {
     let message: Breeds
 }

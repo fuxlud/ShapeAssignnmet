@@ -52,7 +52,7 @@ extension FavoritePicturesViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.favoriteBreeds.count ?? 0
+        return viewModel.favoriteBreeds.count
     }
 }
 
