@@ -26,7 +26,6 @@ class BreedListViewController: UIViewController {
             
             let breedPictureViewModel = BreedPictureViewModel(with: breed)
             breedPictureViewController.viewModel = breedPictureViewModel
-            breedPictureViewController.title = breed.name
         }
     }
 }
