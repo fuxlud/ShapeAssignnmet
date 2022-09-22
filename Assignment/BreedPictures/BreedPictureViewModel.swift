@@ -5,13 +5,16 @@ class BreedPictureViewModel {
     
     private(set) var breed: Breed
     private(set) var imageURLs = [URL]()
-
-    public init(with breed: Breed) {
+    private let dogImagesService: DogImagesService
+    
+    public init(with breed: Breed,
+                dogImagesService: DogImagesService = WebService()) {
         self.breed = breed
+        self.dogImagesService = dogImagesService
     }
     
     func fetchImages() async throws {
-//        let fetchedBreeds = try await dogsService.getAllBreeds()
-//        breeds = fetchedBreeds
+        let fetchedImageUrls = try await dogImagesService.getBreedImages()
+        imageURLs = fetchedImageUrls
     }
 }
