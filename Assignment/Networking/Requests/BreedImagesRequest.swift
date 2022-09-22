@@ -9,7 +9,7 @@ extension WebService: DogImagesService {
         let request = BreedImagesRequest()
 
         let result = try await request.execute(on: router)
-        let urls: [URL] = [URL(string: "www.google.com")!, URL(string: "www.apple.com")!]
+        let urls: [URL] = [URL(string: "www.google.com")!, URL(string: "www.apple.com")!, URL(string: "www.google.com")!, URL(string: "www.apple.com")!]
         return urls
 //        if let breedsContainer = result as? BreedsRespose {
 //            let breeds = breedsContainer.message.breeds

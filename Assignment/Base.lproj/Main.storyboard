@@ -99,7 +99,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-OX-40k">
                                 <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lih-xf-f7R">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="lih-xf-f7R">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -125,6 +125,7 @@
                                                 <constraint firstItem="XKF-LI-PYP" firstAttribute="centerX" secondItem="xc1-dn-bOl" secondAttribute="centerX" id="HzB-kt-rv7"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" red="0.14117647059999999" green="0.16078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="breedNameLabel" destination="XKF-LI-PYP" id="f6e-av-naY"/>
                                         </connections>
@@ -132,6 +133,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="DQg-J8-c5k" id="wl1-oz-EDV"/>
+                                    <outlet property="delegate" destination="DQg-J8-c5k" id="N4c-Tt-JZz"/>
                                 </connections>
                             </collectionView>
                         </subviews>

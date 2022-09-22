@@ -40,3 +40,12 @@ extension BreedPictureViewController: UICollectionViewDataSource {
         return viewModel?.imageURLs.count ?? 0
     }
 }
+
+private let screenWidth: CGFloat = UIScreen.main.bounds.width
+private let edgeLength = (screenWidth - 3)/3
+
+extension BreedPictureViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: edgeLength, height: edgeLength)
+    }
+}
