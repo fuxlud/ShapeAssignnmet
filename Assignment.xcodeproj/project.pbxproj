@@ -24,7 +24,6 @@
 		381D793E28DC5F4300CD5803 /* BreedPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D793D28DC5F4300CD5803 /* BreedPictureCell.swift */; };
 		381D794028DC5F7000CD5803 /* BreedPictureCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D793F28DC5F7000CD5803 /* BreedPictureCellViewModel.swift */; };
 		381D794228DC630200CD5803 /* BreedImagesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D794128DC630200CD5803 /* BreedImagesRequest.swift */; };
-		381D794428DC977000CD5803 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D794328DC977000CD5803 /* ImageLoader.swift */; };
 		381D794628DCBC9700CD5803 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D794528DCBC9700CD5803 /* ImageRequest.swift */; };
 		382DE43328DB353A001E88C9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43228DB353A001E88C9 /* Breed.swift */; };
 		382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43628DB3EB2001E88C9 /* Extensions.swift */; };
@@ -59,7 +58,6 @@
 		381D793D28DC5F4300CD5803 /* BreedPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureCell.swift; sourceTree = "<group>"; };
 		381D793F28DC5F7000CD5803 /* BreedPictureCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureCellViewModel.swift; sourceTree = "<group>"; };
 		381D794128DC630200CD5803 /* BreedImagesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedImagesRequest.swift; sourceTree = "<group>"; };
-		381D794328DC977000CD5803 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		381D794528DCBC9700CD5803 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		382DE43228DB353A001E88C9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		382DE43628DB3EB2001E88C9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				381D792C28DBADA000CD5803 /* RequestConstants.swift */,
 				381D792D28DBADA000CD5803 /* RequestType.swift */,
 				381D792E28DBADA000CD5803 /* NetworkError.swift */,
-				381D794328DC977000CD5803 /* ImageLoader.swift */,
 			);
 			name = Networking;
 			path = Assignment/Networking;
@@ -288,7 +285,6 @@
 				387B3EEB28DB0EED005D100A /* SceneDelegate.swift in Sources */,
 				381D793828DBADA000CD5803 /* NetworkHost.swift in Sources */,
 				382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */,
-				381D794428DC977000CD5803 /* ImageLoader.swift in Sources */,
 				381D794228DC630200CD5803 /* BreedImagesRequest.swift in Sources */,
 				382DE43B28DB8601001E88C9 /* BreedPictureViewController.swift in Sources */,
 				382DE43928DB85EE001E88C9 /* BreedPictureViewModel.swift in Sources */,
