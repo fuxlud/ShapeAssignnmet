@@ -46,7 +46,7 @@ private let edgeLength = (screenWidth - 3)/3
 
 extension BreedPictureViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print("edgeLength - \(edgeLength)")
         return CGSize(width: edgeLength, height: edgeLength)
     }
 }
+

@@ -17,7 +17,6 @@ public struct NetworkRouter: NetworkRouterProtocol {
 
     private func sendRequest(_ request: RequestProtocol) async throws -> Data {
         let urlRequest = try buildRequest(from: request)
-        NetworkLogger.log(request: urlRequest)
 
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.waitsForConnectivity = true

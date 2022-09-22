@@ -78,7 +78,13 @@
                             <constraint firstItem="k1d-Yy-Ug1" firstAttribute="top" secondItem="0UA-YU-16F" secondAttribute="top" id="pWe-7f-oWg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home Assignment" largeTitleDisplayMode="never" id="Cki-9l-oVF"/>
+                    <navigationItem key="navigationItem" title="Home Assignment" largeTitleDisplayMode="never" id="Cki-9l-oVF">
+                        <barButtonItem key="rightBarButtonItem" title="Likes" id="HJS-L2-Xik">
+                            <connections>
+                                <segue destination="bRb-Fy-WHi" kind="show" id="KfS-cS-8p4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="k1d-Yy-Ug1" id="Jef-Yc-B6f"/>
                         <segue destination="DQg-J8-c5k" kind="show" identifier="BreedPictureViewController" id="7YO-VW-QSJ"/>
@@ -151,7 +157,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbZ-S3-HeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427.6923076923076" y="253.79146919431278"/>
+            <point key="canvasLocation" x="1878" y="648"/>
+        </scene>
+        <!--Favorite Pictures-->
+        <scene sceneID="ube-CW-18c">
+            <objects>
+                <viewController id="bRb-Fy-WHi" customClass="FavoritePicturesViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LlJ-tX-5dA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZQw-0D-PEc">
+                                <rect key="frame" x="0.0" y="191" width="390" height="653"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="A7H-Ah-2Bg">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BreedPictureCell" id="74C-CN-o6h" customClass="BreedPictureCell" customModule="Assignment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="g9q-vD-GA2">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXs-Nn-A2c">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fXs-Nn-A2c" secondAttribute="trailing" id="NcX-AK-sKo"/>
+                                                <constraint firstAttribute="bottom" secondItem="fXs-Nn-A2c" secondAttribute="bottom" id="ZT7-QD-QSz"/>
+                                                <constraint firstItem="fXs-Nn-A2c" firstAttribute="top" secondItem="g9q-vD-GA2" secondAttribute="top" id="oR2-3v-pHI"/>
+                                                <constraint firstItem="fXs-Nn-A2c" firstAttribute="leading" secondItem="g9q-vD-GA2" secondAttribute="leading" id="y7O-ml-V8o"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageView" destination="fXs-Nn-A2c" id="MQ3-dC-WkD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o19-4e-Oh3">
+                                <rect key="frame" x="0.0" y="91" width="390" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="TTT-uc-B53"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="bRb-Fy-WHi" id="lqt-XA-o0l"/>
+                                    <outlet property="delegate" destination="bRb-Fy-WHi" id="EYB-hY-h1h"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S4T-Od-oxR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o19-4e-Oh3" firstAttribute="top" secondItem="S4T-Od-oxR" secondAttribute="top" id="2W0-4k-GJH"/>
+                            <constraint firstItem="ZQw-0D-PEc" firstAttribute="leading" secondItem="S4T-Od-oxR" secondAttribute="leading" id="7Rf-ZH-TQD"/>
+                            <constraint firstItem="o19-4e-Oh3" firstAttribute="leading" secondItem="S4T-Od-oxR" secondAttribute="leading" id="Je2-qY-SUz"/>
+                            <constraint firstItem="ZQw-0D-PEc" firstAttribute="trailing" secondItem="S4T-Od-oxR" secondAttribute="trailing" id="LWb-Oh-R80"/>
+                            <constraint firstItem="ZQw-0D-PEc" firstAttribute="top" secondItem="o19-4e-Oh3" secondAttribute="bottom" id="UbG-rX-thx"/>
+                            <constraint firstItem="o19-4e-Oh3" firstAttribute="trailing" secondItem="S4T-Od-oxR" secondAttribute="trailing" id="aXy-lU-OuF"/>
+                            <constraint firstAttribute="bottom" secondItem="ZQw-0D-PEc" secondAttribute="bottom" id="hUv-fP-AIc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorite Pictures" id="tGQ-wY-oqs"/>
+                    <connections>
+                        <outlet property="breedPicker" destination="o19-4e-Oh3" id="4Ui-u7-Obo"/>
+                        <outlet property="collectionView" destination="ZQw-0D-PEc" id="uu7-Do-oQT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdn-xF-CsK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876.9230769230769" y="-173.45971563981041"/>
         </scene>
     </scenes>
     <resources>
