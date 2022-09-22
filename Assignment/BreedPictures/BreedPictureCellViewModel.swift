@@ -4,18 +4,18 @@ import UIKit
 @MainActor
 class BreedPictureCellViewModel {
     
-    private let imageURL: URL! //TODO: private
-    private let imageService: ImageService
+    private let imageURL: URL!
+    private let imageLoader: ImageLoader
     private(set) var image: UIImage?
 
     public init(with imageURL: URL,
-                imageService: ImageService = WebService()) {
+                imageLoader: ImageLoader = ImageLoader.shared) {
         self.imageURL = imageURL
-        self.imageService = imageService
+        self.imageLoader = imageLoader
     }
     
     func fetchImage() async throws -> UIImage? {
-        image = try await imageService.getImage(from: imageURL)
+        image = try await imageLoader.loadImage(from: imageURL)
         return image
     }
 }

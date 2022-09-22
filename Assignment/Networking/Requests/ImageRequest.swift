@@ -2,11 +2,11 @@ import Foundation
 import UIKit
 
 protocol ImageService {
-    func getImage(from url: URL) async throws -> UIImage
+    func loadImage(from url: URL) async throws -> UIImage
 }
 
 extension WebService: ImageService {
-    func getImage(from url: URL) async throws -> UIImage {
+    func loadImage(from url: URL) async throws -> UIImage {
         let request = ImageRequest(url: url)
 
         let imageData = try await request.execute(on: router)
