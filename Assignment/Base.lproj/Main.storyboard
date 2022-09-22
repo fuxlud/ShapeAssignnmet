@@ -113,21 +113,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKF-LI-PYP">
-                                                    <rect key="frame" x="43" y="53.666666666666657" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3fx-Rf-4f3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XKF-LI-PYP" firstAttribute="centerY" secondItem="xc1-dn-bOl" secondAttribute="centerY" id="6iw-ex-pLr"/>
-                                                <constraint firstItem="XKF-LI-PYP" firstAttribute="centerX" secondItem="xc1-dn-bOl" secondAttribute="centerX" id="HzB-kt-rv7"/>
+                                                <constraint firstAttribute="bottom" secondItem="3fx-Rf-4f3" secondAttribute="bottom" id="EV7-tU-Nwd"/>
+                                                <constraint firstAttribute="trailing" secondItem="3fx-Rf-4f3" secondAttribute="trailing" id="MaU-4O-qgP"/>
+                                                <constraint firstItem="3fx-Rf-4f3" firstAttribute="leading" secondItem="xc1-dn-bOl" secondAttribute="leading" id="iHH-WK-ice"/>
+                                                <constraint firstItem="3fx-Rf-4f3" firstAttribute="top" secondItem="xc1-dn-bOl" secondAttribute="top" id="vvj-nR-bjU"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.16078431369999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="breedNameLabel" destination="XKF-LI-PYP" id="f6e-av-naY"/>
+                                            <outlet property="imageView" destination="3fx-Rf-4f3" id="vW7-rL-irI"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

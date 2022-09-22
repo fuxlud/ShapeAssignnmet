@@ -3,12 +3,20 @@ import UIKit
 
 class BreedPictureCell: UICollectionViewCell {
     
-    @IBOutlet weak var breedNameLabel: UILabel!
-
+    @IBOutlet private weak var imageView: UIImageView?
+    
     private var viewModel: BreedPictureCellViewModel?
         
     func setupView(viewModel: BreedPictureCellViewModel) {
         self.viewModel = viewModel //TODO: Consider removing
-        breedNameLabel.text = viewModel.imageURL.absoluteString
+        
+        Task {
+            do {
+                let image = try await viewModel.fetchImage()
+                imageView?.image = image
+            } catch {
+                // some error image
+            }
+        }
     }
 }
