@@ -24,14 +24,13 @@ class BreedPicturesViewController: UIViewController {
 extension BreedPicturesViewController: UICollectionViewDataSource {
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreedPictureCell.className, for: indexPath) as? BreedPictureCell,
-              let imageURL = viewModel?.imagesDetails[indexPath.row],
-              let breed = viewModel?.breed
+              let imageURL = viewModel?.imagesDetails[indexPath.row]
         else {
             return UICollectionViewCell()
         }
 
         
-        let breedCellViewModel = BreedPictureCellViewModel(with: imageURL, breed: breed)
+        let breedCellViewModel = BreedPictureCellViewModel(with: imageURL)
 
         cell.setupView(viewModel: breedCellViewModel, indexPath: indexPath)
         return cell

@@ -17,9 +17,14 @@ extension WebService: DogImagesService {
             
             if let favoriteImagesOfBreed = await favoritesManager.images(of: breed.name) {
                 for imageDetails in imagesDetails {
+                    imageDetails.breedName = breed.name
                     if favoriteImagesOfBreed.contains(where: { $0.url == imageDetails.url }) {
                         imageDetails.isFavorite = true
                     }
+                }
+            } else {
+                for imageDetails in imagesDetails {
+                    imageDetails.breedName = breed.name
                 }
             }
             breed.breedImages = imagesDetails

@@ -28,7 +28,7 @@ extension FavoritePicturesViewController: UICollectionViewDataSource {
         }
 
 
-        let breedCellViewModel = BreedPictureCellViewModel(with: imageURL, breed: Breed(name: "To Change"))
+        let breedCellViewModel = BreedPictureCellViewModel(with: imageURL)
 
         cell.setupView(viewModel: breedCellViewModel, indexPath: indexPath)
         return cell

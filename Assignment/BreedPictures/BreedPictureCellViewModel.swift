@@ -9,14 +9,11 @@ class BreedPictureCellViewModel {
     private let favoritesManager: FavoritesManaging
     
     private(set) var image: UIImage?
-    private(set) var breed: Breed
     
     public init(with imageDetails: ImageDetails,
-                breed: Breed,
                 imageLoader: ImageLoader = ImageLoader.shared,
                 favoritesManager: FavoritesManaging = FavoritesManager.shared) {
         self.imageDetails = imageDetails
-        self.breed = breed
         self.imageLoader = imageLoader
         self.favoritesManager = favoritesManager
     }
@@ -31,9 +28,9 @@ class BreedPictureCellViewModel {
         imageDetails.isFavorite.toggle()
         Task {
             if isFavoriteBeforeTap {
-                await favoritesManager.unlike(imageDetails: imageDetails, breed: breed.name)
+                await favoritesManager.unlike(imageDetails: imageDetails)
             } else {
-                await favoritesManager.like(imageDetails: imageDetails, breed: breed.name)
+                await favoritesManager.like(imageDetails: imageDetails)
             }
         }
     }

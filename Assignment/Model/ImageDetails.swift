@@ -3,6 +3,7 @@ import Foundation
 class ImageDetails: Decodable {
     let url: URL
     var isFavorite = false
+    var breedName = ""
     
     init(url: URL, isFavorite: Bool = false) {
         self.url = url
