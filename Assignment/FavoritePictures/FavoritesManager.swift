@@ -11,11 +11,12 @@ actor FavoritesManager: FavoritesManaging {
     
     static let shared = FavoritesManager()
     
-    var favoritesByBreed: [String: [ImageDetails]] = [:]
-    var allFavorites: [ImageDetails] = []
     let allKey = "all"
     let favoritesByBreedKey = "favoritesByBreed"
     let allFavoritesKey = "allFavorites"
+    
+    private(set) var favoritesByBreed: [String: [ImageDetails]] = [:]
+    private(set) var allFavorites: [ImageDetails] = []
     private let localPersistence: LocalPersistence
     
     init(localPersistence: LocalPersistence = UserDefaults.standard ) {

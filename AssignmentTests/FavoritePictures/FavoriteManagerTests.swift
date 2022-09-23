@@ -13,6 +13,12 @@ final class FavoriteManagerTests: XCTestCase {
         imageDetails.breedName = breedName
     }
 
+    func testGetFavoriteBreeds() async {
+        await sut.like(imageDetails: imageDetails)
+        let favoriteBreeds = await sut.getFavoriteBreeds()
+        XCTAssertEqual(favoriteBreeds, ["all", "shuki"])
+    }
+    
     func testLikingSavesImageToFavoritesByBreedToLocalPersistance() async throws {
         await sut.like(imageDetails: imageDetails)
         let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalPersistanceSpy()
@@ -54,5 +60,11 @@ final class FavoriteManagerTests: XCTestCase {
         await sut.unlike(imageDetails: imageDetails)
         let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalPersistanceSpy()
         XCTAssertEqual(favoritesByBreedRecorded.keys.count, 0)
+    }
+    
+    func testImagesOfBreedName() async {
+        await sut.like(imageDetails: imageDetails)
+        let imagesOfBreedName = await sut.images(of: breedName)
+        XCTAssertEqual(imagesOfBreedName!.first, imageDetails)
     }
 }
