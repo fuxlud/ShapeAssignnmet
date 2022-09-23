@@ -5,6 +5,12 @@ struct ImageDetails: Decodable {
     var isFavorite = false
 }
 
+extension ImageDetails: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.url == rhs.url
+    }
+}
+
 struct BreedImagesResponce: Decodable {
     var imagesDetails: [ImageDetails]
     

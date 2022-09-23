@@ -28,7 +28,7 @@ actor FavoritesManager: FavoritesManaging {
     
     func unlike(imageDetails: ImageDetails, breed: String) async {
         removeImageFromFavoritesByBreed(imageDetails: imageDetails, breed: breed)
-        removeImageFromFavoritesByBreed(imageDetails: imageDetails, breed: allKey)
+        removeImageFromAllFavoritesB(imageDetails: imageDetails)
     }
     
     private func addImageToFavoritesByBreed(imageDetails: ImageDetails, breed: String) {
@@ -42,8 +42,13 @@ actor FavoritesManager: FavoritesManaging {
     
     private func removeImageFromFavoritesByBreed(imageDetails: ImageDetails, breed: String) {
         var thisBreedFavorites = favoritesByBreed[breed]
-        thisBreedFavorites?.append(imageDetails)
-        favoritesByBreed[breed] = thisBreedFavorites
+        let filteredBreedFavorites = thisBreedFavorites?.filter { $0.url != imageDetails.url }
+        favoritesByBreed[breed] = filteredBreedFavorites
+    }
+    
+    private func removeImageFromAllFavoritesB(imageDetails: ImageDetails) {
+        let filteredAllFavorites = allFavorites.filter { $0.url != imageDetails.url }
+        allFavorites = filteredAllFavorites
     }
     
     func images(of breedName: String) async -> [ImageDetails]? {
