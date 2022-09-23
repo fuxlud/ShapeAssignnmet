@@ -14,7 +14,7 @@ public extension RequestTypeProtocol {
     func execute(on router: NetworkRouterProtocol) async throws -> Any {
         let data = try await router.request(request)
 
-        if let data = data {
+        if let data {
             if request.shouldDecode {
                 if let response = try? JSONDecoder().decode(ResponseType.self, from: data) {            return response
                 }
