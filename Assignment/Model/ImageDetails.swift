@@ -1,13 +1,12 @@
 import Foundation
 
-struct ImageDetails: Decodable {
+class ImageDetails: Decodable {
     let url: URL
     var isFavorite = false
-}
-
-extension ImageDetails: Equatable {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.url == rhs.url
+    
+    init(url: URL, isFavorite: Bool = false) {
+        self.url = url
+        self.isFavorite = isFavorite
     }
 }
 
@@ -23,7 +22,6 @@ struct BreedImagesResponce: Decodable {
         let urlStrings = try container.decode([String].self, forKey: .urlStrings)
         
         var fetchedImagesDetails: [ImageDetails] = []
-        
         for urlString in urlStrings {
             if let url = URL(string: urlString) {
                 let imageDetails = ImageDetails(url: url)

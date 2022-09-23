@@ -18,7 +18,7 @@ class BreedPicturesViewModel {
     }
     
     func loadImages() async throws {
-        let fetchedImagesUrls = try await dogImagesService.getBreedImages(breed: breed.name)
+        let fetchedImagesUrls = try await dogImagesService.getBreedImages(breed: breed.name, favoritesManager: favoritesManager)
         imagesDetails = fetchedImagesUrls
         await favoriteImagesOfBreed = favoritesManager.images(of: breed.name) ?? []
     }
