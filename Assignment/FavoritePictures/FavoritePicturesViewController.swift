@@ -12,6 +12,8 @@ class FavoritePicturesViewController: UIViewController {
         Task {
             await viewModel.loadFavoriteBreedNames()
             breedPicker.reloadAllComponents()
+            let breedName = viewModel.favoriteBreedNames[0]
+            await viewModel.loadImages(of: breedName)
             collectionView?.reloadData()
         }
     }
