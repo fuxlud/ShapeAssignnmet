@@ -4,7 +4,6 @@ import Foundation
 class BreedPicturesViewModel {
     
     private(set) var breed: Breed
-    private(set) var imagesDetails = [ImageDetails]()
     private(set) var favoriteImagesOfBreed = [ImageDetails]()
     private let dogImagesService: DogImagesService
     private var favoritesManager: FavoritesManaging
@@ -18,8 +17,11 @@ class BreedPicturesViewModel {
     }
     
     func loadImages() async throws {
-        let fetchedImagesUrls = try await dogImagesService.getBreedImages(breed: breed.name, favoritesManager: favoritesManager)
-        imagesDetails = fetchedImagesUrls
+        try await dogImagesService.getBreedImages(breed: breed, favoritesManager: favoritesManager)
         await favoriteImagesOfBreed = favoritesManager.images(of: breed.name) ?? []
+    }
+    
+    var imagesDetails: [ImageDetails] {
+        breed.breedImages
     }
 }

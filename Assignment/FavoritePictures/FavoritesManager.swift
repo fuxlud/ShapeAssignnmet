@@ -4,7 +4,7 @@ protocol FavoritesManaging {
     func like(imageDetails: ImageDetails, breed: String) async
     func unlike(imageDetails: ImageDetails, breed: String) async
     func getFavoriteBreeds() async -> [String]
-    func images(of breedName: String) async -> [ImageDetails]?
+    func images(of breed: String) async -> [ImageDetails]?
 }
 
 actor FavoritesManager: FavoritesManaging {

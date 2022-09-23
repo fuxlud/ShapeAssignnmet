@@ -26,8 +26,14 @@ struct Breeds: Decodable {
     }
 }
 
-struct Breed: Decodable {
+class Breed: Decodable {
     let name: String
+    var breedImages: [ImageDetails] = []
+    
+    init(name: String, breedImages: [ImageDetails] = []) {
+        self.name = name
+        self.breedImages = breedImages
+    }
 }
 
 struct BreedsRespose: Decodable {
