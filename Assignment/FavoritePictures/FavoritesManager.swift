@@ -16,16 +16,12 @@ actor FavoritesManager: FavoritesManaging {
     let allKey = "all"
     let favoritesByBreedKey = "favoritesByBreed"
     let allFavoritesKey = "allFavorites"
+    private let localPersistence: LocalPersistence
     
-    private init() {
-        if let favoritesByBreedData = UserDefaults.standard.data(forKey: favoritesByBreedKey),
-           let allFavoritesData = UserDefaults.standard.data(forKey: allFavoritesKey)
-        {
-            do {
-                let decoder = JSONDecoder()
-                favoritesByBreed = try decoder.decode([String: [ImageDetails]].self, from: favoritesByBreedData)
-                allFavorites = try decoder.decode([ImageDetails].self, from: allFavoritesData)
-            } catch {}
+    init(localPersistence: LocalPersistence = UserDefaults.standard ) {
+        self.localPersistence = localPersistence
+        Task {
+            await loadFavoritesFromLocalPersistance()
         }
     }
     
@@ -85,10 +81,22 @@ actor FavoritesManager: FavoritesManaging {
             let favoritesByBreedData = try encoder.encode(favoritesByBreed)
             let allFavoritesData = try encoder.encode(allFavorites)
             
-            UserDefaults.standard.set(favoritesByBreedData, forKey: favoritesByBreedKey)
-            UserDefaults.standard.set(allFavoritesData, forKey: allFavoritesKey)
+            localPersistence.set(favoritesByBreedData, forKey: favoritesByBreedKey)
+            localPersistence.set(allFavoritesData, forKey: allFavoritesKey)
         } catch {
             
+        }
+    }
+    
+    private func loadFavoritesFromLocalPersistance() {
+        if let favoritesByBreedData = localPersistence.data(forKey: favoritesByBreedKey),
+           let allFavoritesData = localPersistence.data(forKey: allFavoritesKey)
+        {
+            do {
+                let decoder = JSONDecoder()
+                favoritesByBreed = try decoder.decode([String: [ImageDetails]].self, from: favoritesByBreedData)
+                allFavorites = try decoder.decode([ImageDetails].self, from: allFavoritesData)
+            } catch {}
         }
     }
 }
