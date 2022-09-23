@@ -26,7 +26,7 @@ final class FavoriteManagerTests: XCTestCase {
         return favoritesByBreed
     }
     
-    func testLikingSavesImageTo() async throws {
+    func testLikingSavesImageToLocalPersistanceSpy() async throws {
         await sut.like(imageDetails: imageDetails)
         
         let allFavoritesRecorded = loadAllFavoritesFromLocalPersistanceSpy()
@@ -41,4 +41,11 @@ final class FavoriteManagerTests: XCTestCase {
         return allFavorites
     }
 
+    func testUnlikingRemovesImageImageToLocalPersistanceSpy() async throws {
+        await sut.like(imageDetails: imageDetails)
+        await sut.unlike(imageDetails: imageDetails)
+        let allFavoritesRecorded = loadAllFavoritesFromLocalPersistanceSpy()
+        
+        XCTAssertEqual(allFavoritesRecorded.count, 0)
+    }
 }
