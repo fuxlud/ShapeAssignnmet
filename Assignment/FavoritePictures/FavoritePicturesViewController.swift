@@ -37,27 +37,35 @@ extension FavoritePicturesViewController: UICollectionViewDataSource {
     }
 }
 
-private let screenWidth: CGFloat = UIScreen.main.bounds.width
+private let screenWidth: CGFloat = UIScreen.main.bounds.width //TODO: Is right place?
 private let edgeLength = (screenWidth - 3)/3
 
 extension FavoritePicturesViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: edgeLength, height: edgeLength)
     }
 }
 
 extension FavoritePicturesViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return viewModel.favoriteBreedNames.count
     }
 }
 
 extension FavoritePicturesViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.favoriteBreedNames[row]
+    }
+    
+    internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        Task {
+            let breedName = viewModel.favoriteBreedNames[row]
+            await viewModel.loadImages(of: breedName)
+            collectionView?.reloadData()
+        }
     }
 }

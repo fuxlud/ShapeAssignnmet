@@ -15,10 +15,8 @@ class FavoritePicturesViewModel {
         favoriteBreedNames = await favoritesManager.getFavoriteBreeds()
     }
     
-    func loadImages(of breedName: String) {
-        Task {
-            await imagesOfSpecificBreed = favoritesManager.images(of: breedName) ?? []
-        }
+    func loadImages(of breedName: String) async {
+        await imagesOfSpecificBreed = favoritesManager.images(of: breedName) ?? []
     }
     
     func imagesOfSpecificBreed(at index: Int) -> URL? {
