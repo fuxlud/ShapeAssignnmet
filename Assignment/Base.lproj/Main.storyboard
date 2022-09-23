@@ -210,8 +210,18 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXs-Nn-A2c">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bO-Xo-8w5">
+                                                    <rect key="frame" x="41.666666666666671" y="102" width="44.666666666666671" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2bO-Xo-8w5" secondAttribute="bottom" constant="5" id="CDl-8D-frl"/>
+                                                <constraint firstItem="2bO-Xo-8w5" firstAttribute="centerX" secondItem="g9q-vD-GA2" secondAttribute="centerX" id="JDa-ex-hg9"/>
                                                 <constraint firstAttribute="trailing" secondItem="fXs-Nn-A2c" secondAttribute="trailing" id="NcX-AK-sKo"/>
                                                 <constraint firstAttribute="bottom" secondItem="fXs-Nn-A2c" secondAttribute="bottom" id="ZT7-QD-QSz"/>
                                                 <constraint firstItem="fXs-Nn-A2c" firstAttribute="top" secondItem="g9q-vD-GA2" secondAttribute="top" id="oR2-3v-pHI"/>
@@ -219,6 +229,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="breedLabel" destination="2bO-Xo-8w5" id="JZz-WF-mS9"/>
                                             <outlet property="imageView" destination="fXs-Nn-A2c" id="MQ3-dC-WkD"/>
                                         </connections>
                                     </collectionViewCell>

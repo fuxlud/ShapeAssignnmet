@@ -38,4 +38,8 @@ class BreedPictureCellViewModel {
     var isFavorite: Bool {
         return imageDetails.isFavorite
     }
+    
+    var breedName: String {
+        return imageDetails.breedName
+    }
 }

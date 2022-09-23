@@ -4,6 +4,7 @@ import UIKit
 class BreedPictureCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView?
+    @IBOutlet private weak var breedLabel: UILabel?
     @IBOutlet private weak var favoriteIndicator: UIImageView?
     
     private var viewModel: BreedPictureCellViewModel?
@@ -19,7 +20,7 @@ class BreedPictureCell: UICollectionViewCell {
                 let image = try await viewModel.fetchImage()
                 if indexPath == self.indexPath {
                     imageView?.image = image
-                    updateFavoriteIndicator()
+                    updateView()
                 }
             } catch {
                 // some error image
@@ -29,10 +30,10 @@ class BreedPictureCell: UICollectionViewCell {
     
     @IBAction func imageTapped(_ sender: Any) {
         viewModel?.imageLikeStateShouldChange()
-        updateFavoriteIndicator()
+        updateView()
     }
     
-    private func updateFavoriteIndicator() {
+    private func updateView() {
         
         if let isFavorite = viewModel?.isFavorite,
            isFavorite == true {
@@ -40,5 +41,7 @@ class BreedPictureCell: UICollectionViewCell {
         } else {
             favoriteIndicator?.image = UIImage(systemName: "heart")
         }
+        
+        breedLabel?.text = viewModel?.breedName
     }
 }
