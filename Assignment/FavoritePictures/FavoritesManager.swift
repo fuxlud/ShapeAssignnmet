@@ -41,9 +41,13 @@ actor FavoritesManager: FavoritesManaging {
     }
     
     private func removeImageFromFavoritesByBreed(imageDetails: ImageDetails, breed: String) {
-        var thisBreedFavorites = favoritesByBreed[breed]
+        let thisBreedFavorites = favoritesByBreed[breed]
         let filteredBreedFavorites = thisBreedFavorites?.filter { $0.url != imageDetails.url }
-        favoritesByBreed[breed] = filteredBreedFavorites
+        if filteredBreedFavorites?.count == 0 {
+            favoritesByBreed.removeValue(forKey: breed)
+        } else {
+            favoritesByBreed[breed] = filteredBreedFavorites
+        }
     }
     
     private func removeImageFromAllFavoritesB(imageDetails: ImageDetails) {
