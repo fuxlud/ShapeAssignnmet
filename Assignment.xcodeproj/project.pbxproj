@@ -195,8 +195,8 @@
 			children = (
 				382DE43A28DB8601001E88C9 /* BreedPicturesViewController.swift */,
 				382DE43828DB85EE001E88C9 /* BreedPicturesViewModel.swift */,
-				381D793F28DC5F7000CD5803 /* BreedPictureCellViewModel.swift */,
 				381D793D28DC5F4300CD5803 /* BreedPictureCell.swift */,
+				381D793F28DC5F7000CD5803 /* BreedPictureCellViewModel.swift */,
 			);
 			path = BreedPictures;
 			sourceTree = "<group>";

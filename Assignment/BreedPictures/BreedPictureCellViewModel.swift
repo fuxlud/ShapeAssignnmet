@@ -27,9 +27,14 @@ class BreedPictureCellViewModel {
     }
     
     func imageLikeStateShouldChange() {
+        let isFavoriteBeforeTap = imageDetails.isFavorite
         imageDetails.isFavorite.toggle()
         Task {
-            await favoritesManager.like(imageDetails: imageDetails, breed: breed.name)
+            if isFavoriteBeforeTap {
+                await favoritesManager.unlike(imageDetails: imageDetails, breed: breed.name)
+            } else {
+                await favoritesManager.like(imageDetails: imageDetails, breed: breed.name)
+            }
         }
     }
     
