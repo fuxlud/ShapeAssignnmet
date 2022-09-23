@@ -21,8 +21,8 @@ final class FavoriteManagerTests: XCTestCase {
 
     private func loadFavoritesByBreedFromLocalPersistanceSpy() -> [String: [ImageDetails]] {
         let favoritesByBreedData = localPersistenceSpy.object(forKey: "favoritesByBreed") as! Data
-        let decoder = JSONDecoder()
-        let favoritesByBreed = try! decoder.decode([String: [ImageDetails]].self, from: favoritesByBreedData)
+        let favoritesByBreed = try! JSONDecoder().decode([String: [ImageDetails]].self,
+                                                         from: favoritesByBreedData)
         return favoritesByBreed
     }
     
@@ -36,8 +36,8 @@ final class FavoriteManagerTests: XCTestCase {
     
     private func loadAllFavoritesFromLocalPersistanceSpy() -> [ImageDetails] {
         let allFavoritesData = localPersistenceSpy.object(forKey: "allFavorites") as! Data
-        let decoder = JSONDecoder()
-        let allFavorites = try! decoder.decode([ImageDetails].self, from: allFavoritesData)
+        let allFavorites = try! JSONDecoder().decode([ImageDetails].self,
+                                                     from: allFavoritesData)
         return allFavorites
     }
 
@@ -47,5 +47,12 @@ final class FavoriteManagerTests: XCTestCase {
         let allFavoritesRecorded = loadAllFavoritesFromLocalPersistanceSpy()
         
         XCTAssertEqual(allFavoritesRecorded.count, 0)
+    }
+    
+    func testUnLikingRemovesImageFromFavoritesByBreedInLocalPersistance() async throws {
+        await sut.like(imageDetails: imageDetails)
+        await sut.unlike(imageDetails: imageDetails)
+        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalPersistanceSpy()
+        XCTAssertEqual(favoritesByBreedRecorded.keys.count, 0)
     }
 }
