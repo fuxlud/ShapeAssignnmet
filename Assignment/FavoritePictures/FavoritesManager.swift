@@ -12,19 +12,18 @@ actor FavoritesManager: FavoritesManaging {
     static let shared = FavoritesManager()
     
     var favoritesByBreed: [String: [ImageDetails]] = [:]
-    let allKey = "All"
-    
-    init() {
-        favoritesByBreed[allKey] = []
-    }
+    var allFavorites: [ImageDetails] = []
+    let allKey = "all"
     
     func getFavoriteBreeds() async -> [String] {
-        return Array(favoritesByBreed.keys)
+        var favoriteBreeds = [allKey]
+        favoriteBreeds.append(contentsOf: Array(favoritesByBreed.keys))
+        return favoriteBreeds
     }
     
     func like(imageDetails: ImageDetails, breed: String) async {
         addImageToFavoritesByBreed(imageDetails: imageDetails, breed: breed)
-        addImageToFavoritesByBreed(imageDetails: imageDetails, breed: allKey)
+        allFavorites.append(imageDetails)
     }
     
     func unlike(imageDetails: ImageDetails, breed: String) async {
@@ -48,6 +47,9 @@ actor FavoritesManager: FavoritesManaging {
     }
     
     func images(of breedName: String) async -> [ImageDetails]? {
+        if breedName == allKey {
+            return allFavorites
+        }
         return favoritesByBreed[breedName]
     }
 }
