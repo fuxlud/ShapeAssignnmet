@@ -153,6 +153,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteIndicator" destination="GBv-wJ-3Gq" id="haQ-pt-sxU"/>
                                             <outlet property="imageView" destination="3fx-Rf-4f3" id="vW7-rL-irI"/>
                                         </connections>
                                     </collectionViewCell>

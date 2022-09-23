@@ -4,7 +4,7 @@ import UIKit
 @MainActor
 class BreedPictureCellViewModel {
     
-    private let imageDetails: ImageDetails
+    private var imageDetails: ImageDetails
     private let imageLoader: ImageLoader // TODO: dependency injection
     private let favoritesManager: FavoritesManaging
     
@@ -26,9 +26,14 @@ class BreedPictureCellViewModel {
         return image
     }
     
-    func imageTapped() {
+    func imageLikeStateShouldChange() {
+        imageDetails.isFavorite.toggle()
         Task {
-//            await favoritesManager.likeImage(url: imageURL, breed: breed.name)
+            await favoritesManager.like(imageDetails: imageDetails, breed: breed.name)
         }
+    }
+    
+    var isFavorite: Bool {
+        return imageDetails.isFavorite
     }
 }
