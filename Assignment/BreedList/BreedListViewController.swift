@@ -19,12 +19,12 @@ class BreedListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let breedPictureViewController = segue.destination as? BreedPictureViewController {
+        if let breedPictureViewController = segue.destination as? BreedPicturesViewController {
             guard let breed = sender as? Breed else {
                 return
             }
             
-            let breedPictureViewModel = BreedPictureViewModel(with: breed)
+            let breedPictureViewModel = BreedPicturesViewModel(with: breed)
             breedPictureViewController.viewModel = breedPictureViewModel
         }
     }
@@ -51,7 +51,7 @@ extension BreedListViewController: UITableViewDataSource {
 extension BreedListViewController: UITableViewDelegate {
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let breed = viewModel.breeds[indexPath.row]
-        self.performSegue(withIdentifier: BreedPictureViewController.className, sender: breed)
+        self.performSegue(withIdentifier: BreedPicturesViewController.className, sender: breed)
     }
 }
 

@@ -1,17 +1,17 @@
 import Foundation
 
 protocol FavoritesManaging {
-    func likeImage(url: URL, breed: String) async
-    func unlikeImage(url: URL, breed: String) async
+    func like(imageDetails: ImageDetails, breed: String) async
+    func unlike(imageDetails: ImageDetails, breed: String) async
     func getFavoriteBreeds() async -> [String]
-    func images(of breedName: String) async -> [URL]?
+    func images(of breedName: String) async -> [ImageDetails]?
 }
 
 actor FavoritesManager: FavoritesManaging {
     
     static let shared = FavoritesManager()
     
-    var favoritesByBreed: [String: [URL]] = [:]
+    var favoritesByBreed: [String: [ImageDetails]] = [:]
     let allKey = "All"
     
     init() {
@@ -22,32 +22,32 @@ actor FavoritesManager: FavoritesManaging {
         return Array(favoritesByBreed.keys)
     }
     
-    func likeImage(url: URL, breed: String) async {
-        addImageToFavoritesByBreed(url: url, breed: breed)
-        addImageToFavoritesByBreed(url: url, breed: allKey)
+    func like(imageDetails: ImageDetails, breed: String) async {
+        addImageToFavoritesByBreed(imageDetails: imageDetails, breed: breed)
+        addImageToFavoritesByBreed(imageDetails: imageDetails, breed: allKey)
     }
     
-    func unlikeImage(url: URL, breed: String) async {
-        removeImageFromFavoritesByBreed(url: url, breed: breed)
-        removeImageFromFavoritesByBreed(url: url, breed: allKey)
+    func unlike(imageDetails: ImageDetails, breed: String) async {
+        removeImageFromFavoritesByBreed(imageDetails: imageDetails, breed: breed)
+        removeImageFromFavoritesByBreed(imageDetails: imageDetails, breed: allKey)
     }
     
-    private func addImageToFavoritesByBreed(url: URL, breed: String) {
+    private func addImageToFavoritesByBreed(imageDetails: ImageDetails, breed: String) {
         var thisBreedFavorites = favoritesByBreed[breed]
         if thisBreedFavorites == nil {
             thisBreedFavorites = []
         }
-        thisBreedFavorites?.append(url)
+        thisBreedFavorites?.append(imageDetails)
         favoritesByBreed[breed] = thisBreedFavorites
     }
     
-    private func removeImageFromFavoritesByBreed(url: URL, breed: String) {
+    private func removeImageFromFavoritesByBreed(imageDetails: ImageDetails, breed: String) {
         var thisBreedFavorites = favoritesByBreed[breed]
-        thisBreedFavorites?.append(url)
+        thisBreedFavorites?.append(imageDetails)
         favoritesByBreed[breed] = thisBreedFavorites
     }
     
-    func images(of breedName: String) async -> [URL]? {
+    func images(of breedName: String) async -> [ImageDetails]? {
         return favoritesByBreed[breedName]
     }
 }

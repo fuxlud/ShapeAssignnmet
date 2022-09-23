@@ -1,18 +1,18 @@
 import Foundation
 
 protocol DogImagesService {
-    func getBreedImages(breed: String) async throws -> [URL]
+    func getBreedImages(breed: String) async throws -> [ImageDetails]
 }
 
 extension WebService: DogImagesService {
-    func getBreedImages(breed: String) async throws -> [URL] {
+    func getBreedImages(breed: String) async throws -> [ImageDetails] {
         let request = BreedImagesRequest(breed: breed)
 
         let result = try await request.execute(on: router)
         
-        if let breedsContainer = result as? BreedImagesResponce {
-            let breeds = breedsContainer.message
-            return breeds
+        if let imagesContainer = result as? BreedImagesResponce {
+            let imagesDetails = imagesContainer.imagesDetails
+            return imagesDetails
 
         } else {
             throw NetworkError.parcingError

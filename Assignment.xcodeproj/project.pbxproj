@@ -28,10 +28,11 @@
 		381D794C28DCE8A600CD5803 /* FavoritePicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D794B28DCE8A600CD5803 /* FavoritePicturesViewController.swift */; };
 		381D794E28DCE8B200CD5803 /* FavoritePicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D794D28DCE8B200CD5803 /* FavoritePicturesViewModel.swift */; };
 		381D795028DCEF3200CD5803 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D794F28DCEF3200CD5803 /* FavoritesManager.swift */; };
+		381D795228DD840900CD5803 /* ImageDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D795128DD840900CD5803 /* ImageDetails.swift */; };
 		382DE43328DB353A001E88C9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43228DB353A001E88C9 /* Breed.swift */; };
 		382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43628DB3EB2001E88C9 /* Extensions.swift */; };
-		382DE43928DB85EE001E88C9 /* BreedPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43828DB85EE001E88C9 /* BreedPictureViewModel.swift */; };
-		382DE43B28DB8601001E88C9 /* BreedPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43A28DB8601001E88C9 /* BreedPictureViewController.swift */; };
+		382DE43928DB85EE001E88C9 /* BreedPicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43828DB85EE001E88C9 /* BreedPicturesViewModel.swift */; };
+		382DE43B28DB8601001E88C9 /* BreedPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43A28DB8601001E88C9 /* BreedPicturesViewController.swift */; };
 		387B3EE928DB0EED005D100A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EE828DB0EED005D100A /* AppDelegate.swift */; };
 		387B3EEB28DB0EED005D100A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B3EEA28DB0EED005D100A /* SceneDelegate.swift */; };
 		387B3EF028DB0EED005D100A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 387B3EEE28DB0EED005D100A /* Main.storyboard */; };
@@ -65,10 +66,11 @@
 		381D794B28DCE8A600CD5803 /* FavoritePicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePicturesViewController.swift; sourceTree = "<group>"; };
 		381D794D28DCE8B200CD5803 /* FavoritePicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePicturesViewModel.swift; sourceTree = "<group>"; };
 		381D794F28DCEF3200CD5803 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		381D795128DD840900CD5803 /* ImageDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetails.swift; sourceTree = "<group>"; };
 		382DE43228DB353A001E88C9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		382DE43628DB3EB2001E88C9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		382DE43828DB85EE001E88C9 /* BreedPictureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureViewModel.swift; sourceTree = "<group>"; };
-		382DE43A28DB8601001E88C9 /* BreedPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureViewController.swift; sourceTree = "<group>"; };
+		382DE43828DB85EE001E88C9 /* BreedPicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewModel.swift; sourceTree = "<group>"; };
+		382DE43A28DB8601001E88C9 /* BreedPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewController.swift; sourceTree = "<group>"; };
 		387B3EE528DB0EED005D100A /* Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387B3EE828DB0EED005D100A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		387B3EEA28DB0EED005D100A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				382DE43228DB353A001E88C9 /* Breed.swift */,
+				381D795128DD840900CD5803 /* ImageDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,8 +193,8 @@
 		387B3F5928DB1EA1005D100A /* BreedPictures */ = {
 			isa = PBXGroup;
 			children = (
-				382DE43A28DB8601001E88C9 /* BreedPictureViewController.swift */,
-				382DE43828DB85EE001E88C9 /* BreedPictureViewModel.swift */,
+				382DE43A28DB8601001E88C9 /* BreedPicturesViewController.swift */,
+				382DE43828DB85EE001E88C9 /* BreedPicturesViewModel.swift */,
 				381D793F28DC5F7000CD5803 /* BreedPictureCellViewModel.swift */,
 				381D793D28DC5F4300CD5803 /* BreedPictureCell.swift */,
 			);
@@ -297,10 +300,11 @@
 				382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */,
 				381D794228DC630200CD5803 /* BreedImagesRequest.swift in Sources */,
 				381D794E28DCE8B200CD5803 /* FavoritePicturesViewModel.swift in Sources */,
-				382DE43B28DB8601001E88C9 /* BreedPictureViewController.swift in Sources */,
-				382DE43928DB85EE001E88C9 /* BreedPictureViewModel.swift in Sources */,
+				382DE43B28DB8601001E88C9 /* BreedPicturesViewController.swift in Sources */,
+				382DE43928DB85EE001E88C9 /* BreedPicturesViewModel.swift in Sources */,
 				381D794028DC5F7000CD5803 /* BreedPictureCellViewModel.swift in Sources */,
 				381D793528DBADA000CD5803 /* BreedsRequest.swift in Sources */,
+				381D795228DD840900CD5803 /* ImageDetails.swift in Sources */,
 				381D795028DCEF3200CD5803 /* FavoritesManager.swift in Sources */,
 				381D793728DBADA000CD5803 /* Request.swift in Sources */,
 				382DE43328DB353A001E88C9 /* Breed.swift in Sources */,

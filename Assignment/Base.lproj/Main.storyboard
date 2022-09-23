@@ -87,17 +87,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="k1d-Yy-Ug1" id="Jef-Yc-B6f"/>
-                        <segue destination="DQg-J8-c5k" kind="show" identifier="BreedPictureViewController" id="7YO-VW-QSJ"/>
+                        <segue destination="DQg-J8-c5k" kind="show" identifier="BreedPicturesViewController" id="7YO-VW-QSJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOW-jW-z3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="525" y="254"/>
         </scene>
-        <!--Breed Picture View Controller-->
+        <!--Breed Pictures View Controller-->
         <scene sceneID="Mn4-tJ-GhN">
             <objects>
-                <viewController id="DQg-J8-c5k" customClass="BreedPictureViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DQg-J8-c5k" customClass="BreedPicturesViewController" customModule="Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r4u-Ik-31Z">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

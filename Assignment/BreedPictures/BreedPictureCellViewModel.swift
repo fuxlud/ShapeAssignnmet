@@ -4,31 +4,31 @@ import UIKit
 @MainActor
 class BreedPictureCellViewModel {
     
-    private let imageURL: URL!
-    private let imageLoader: ImageLoader
+    private let imageDetails: ImageDetails
+    private let imageLoader: ImageLoader // TODO: dependency injection
     private let favoritesManager: FavoritesManaging
     
     private(set) var image: UIImage?
     private(set) var breed: Breed
     
-    public init(with imageURL: URL,
+    public init(with imageDetails: ImageDetails,
                 breed: Breed,
                 imageLoader: ImageLoader = ImageLoader.shared,
                 favoritesManager: FavoritesManaging = FavoritesManager.shared) {
-        self.imageURL = imageURL
+        self.imageDetails = imageDetails
         self.breed = breed
         self.imageLoader = imageLoader
         self.favoritesManager = favoritesManager
     }
     
     func fetchImage() async throws -> UIImage? {
-        image = try await imageLoader.loadImage(from: imageURL)
+        image = try await imageLoader.loadImage(from: imageDetails.url)
         return image
     }
     
     func imageTapped() {
         Task {
-            await favoritesManager.likeImage(url: imageURL, breed: breed.name)
+//            await favoritesManager.likeImage(url: imageURL, breed: breed.name)
         }
     }
 }

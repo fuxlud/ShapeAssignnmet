@@ -1,18 +1,18 @@
 import Foundation
 import UIKit
 
-class BreedPictureViewController: UIViewController {
+class BreedPicturesViewController: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView?
     
-    public var viewModel: BreedPictureViewModel?
+    public var viewModel: BreedPicturesViewModel?
     
     override func viewDidLoad() {
         title = viewModel?.breed.name
         
         Task {
             do {
-                try await viewModel?.fetchImages()
+                try await viewModel?.loadImages()
                 collectionView?.reloadData()
             } catch {
                 showError(error: error)
@@ -21,10 +21,10 @@ class BreedPictureViewController: UIViewController {
     }
 }
 
-extension BreedPictureViewController: UICollectionViewDataSource {
+extension BreedPicturesViewController: UICollectionViewDataSource {
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreedPictureCell.className, for: indexPath) as? BreedPictureCell,
-              let imageURL = viewModel?.imageURLs[indexPath.row],
+              let imageURL = viewModel?.imagesDetails[indexPath.row],
               let breed = viewModel?.breed
         else {
             return UICollectionViewCell()
@@ -38,14 +38,14 @@ extension BreedPictureViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.imageURLs.count ?? 0
+        return viewModel?.imagesDetails.count ?? 0
     }
 }
 
 private let screenWidth: CGFloat = UIScreen.main.bounds.width
 private let edgeLength = (screenWidth - 3)/3
 
-extension BreedPictureViewController: UICollectionViewDelegateFlowLayout {
+extension BreedPicturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: edgeLength, height: edgeLength)
     }

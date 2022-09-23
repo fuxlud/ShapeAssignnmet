@@ -21,7 +21,7 @@ extension WebService: ImageService {
 }
 
 struct ImageRequest: RequestTypeProtocol {
-    typealias ResponseType = BreedsRespose
+    typealias ResponseType = Bool
 
     let url: URL
     

@@ -5,7 +5,7 @@ class FavoritePicturesViewModel {
 
     private var favoritesManager: FavoritesManaging
     private(set) var favoriteBreedNames: [String] = []
-    private(set) var imagesOfSpecificBreed: [URL] = []
+    private(set) var imagesOfSpecificBreed: [ImageDetails] = []
     
     init(favoritesManager: FavoritesManaging = FavoritesManager.shared) {
         self.favoritesManager = favoritesManager
@@ -19,7 +19,7 @@ class FavoritePicturesViewModel {
         await imagesOfSpecificBreed = favoritesManager.images(of: breedName) ?? []
     }
     
-    func imagesOfSpecificBreed(at index: Int) -> URL? {
+    func imagesOfSpecificBreed(at index: Int) -> ImageDetails? {
         if imagesOfSpecificBreed.count >= index {
             return imagesOfSpecificBreed[index]
         } else {
