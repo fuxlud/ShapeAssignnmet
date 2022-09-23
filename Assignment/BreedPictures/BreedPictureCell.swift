@@ -1,6 +1,9 @@
 import Foundation
 import UIKit
 
+let screenWidth: CGFloat = UIScreen.main.bounds.width
+let edgeLength = (screenWidth - 3)/3
+
 class BreedPictureCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView?

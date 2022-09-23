@@ -39,9 +39,6 @@ extension FavoritePicturesViewController: UICollectionViewDataSource {
     }
 }
 
-private let screenWidth: CGFloat = UIScreen.main.bounds.width //TODO: Is right place?
-private let edgeLength = (screenWidth - 3)/3
-
 extension FavoritePicturesViewController: UICollectionViewDelegateFlowLayout {
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: edgeLength, height: edgeLength)
