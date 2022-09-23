@@ -5,13 +5,13 @@ import UIKit
 class BreedPictureCellViewModel {
     
     private var imageDetails: ImageDetails
-    private let imageLoader: ImageLoader // TODO: dependency injection
+    private let imageLoader: ImageLoading
     private let favoritesManager: FavoritesManaging
     
     private(set) var image: UIImage?
     
     public init(with imageDetails: ImageDetails,
-                imageLoader: ImageLoader = ImageLoader.shared,
+                imageLoader: ImageLoading = ImageLoader.shared,
                 favoritesManager: FavoritesManaging = FavoritesManager.shared) {
         self.imageDetails = imageDetails
         self.imageLoader = imageLoader

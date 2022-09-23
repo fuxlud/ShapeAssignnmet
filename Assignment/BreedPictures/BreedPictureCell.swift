@@ -22,9 +22,7 @@ class BreedPictureCell: UICollectionViewCell {
                     imageView?.image = image
                     updateView()
                 }
-            } catch {
-                // some error image
-            }
+            } catch {}
         }
     }
     

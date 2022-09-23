@@ -159,9 +159,9 @@
 				387B3F5728DB1E90005D100A /* BreedList */,
 				387B3F5928DB1EA1005D100A /* BreedPictures */,
 				38AC4BA828DB1F510087157A /* FavoritePictures */,
-				387B3F5828DB1E98005D100A /* General */,
 				382DE43128DB3450001E88C9 /* Model */,
 				381D791F28DBADA000CD5803 /* Networking */,
+				387B3F5828DB1E98005D100A /* General */,
 				387B3EF628DB0EF0005D100A /* Info.plist */,
 			);
 			path = Assignment;

@@ -1,7 +1,11 @@
 import Foundation
 import UIKit
 
-actor ImageLoader {
+protocol ImageLoading {
+    func loadImage(from url: URL) async throws -> UIImage
+}
+
+actor ImageLoader: ImageLoading {
     
     static let shared = ImageLoader()
         
