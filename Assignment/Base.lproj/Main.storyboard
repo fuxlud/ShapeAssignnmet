@@ -209,6 +209,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="bRb-Fy-WHi" id="rjx-4j-Xsj"/>
+                                    <outlet property="delegate" destination="bRb-Fy-WHi" id="NXn-Do-TCO"/>
+                                </connections>
                             </collectionView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o19-4e-Oh3">
                                 <rect key="frame" x="0.0" y="91" width="390" height="100"/>

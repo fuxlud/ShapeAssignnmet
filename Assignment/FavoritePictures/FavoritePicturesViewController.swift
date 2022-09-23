@@ -10,32 +10,32 @@ class FavoritePicturesViewController: UIViewController {
     
     override func viewDidLoad() {
         Task {
-            await viewModel.getFavoriteBreeds()
+            await viewModel.loadFavoriteBreedNames()
             breedPicker.reloadAllComponents()
             collectionView?.reloadData()
         }
     }
 }
 
-//extension FavoritePicturesViewController: UICollectionViewDataSource {
-//    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreedPictureCell.className, for: indexPath) as? BreedPictureCell,
-//              let imageURL = viewModel?.imageURLs[indexPath.row]
-//        else {
-//            return UICollectionViewCell()
-//        }
-//
-//
-//        let breedCellViewModel = BreedPictureCellViewModel(with: imageURL)
-//
-//        cell.setupView(viewModel: breedCellViewModel)
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return viewModel?.imageURLs.count ?? 0
-//    }
-//}
+extension FavoritePicturesViewController: UICollectionViewDataSource {
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreedPictureCell.className, for: indexPath) as? BreedPictureCell,
+              let imageURL = viewModel.imagesOfSpecificBreed(at: indexPath.row)
+        else {
+            return UICollectionViewCell()
+        }
+
+
+        let breedCellViewModel = BreedPictureCellViewModel(with: imageURL, breed: Breed(name: "To Change"))
+
+        cell.setupView(viewModel: breedCellViewModel, indexPath: indexPath)
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.imagesOfSpecificBreed.count
+    }
+}
 
 private let screenWidth: CGFloat = UIScreen.main.bounds.width
 private let edgeLength = (screenWidth - 3)/3
@@ -52,12 +52,12 @@ extension FavoritePicturesViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.favoriteBreeds.count
+        return viewModel.favoriteBreedNames.count
     }
 }
 
 extension FavoritePicturesViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.favoriteBreeds[row]
+        return viewModel.favoriteBreedNames[row]
     }
 }
