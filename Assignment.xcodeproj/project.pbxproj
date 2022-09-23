@@ -36,6 +36,8 @@
 		381D796D28DE08E300CD5803 /* RequestTypeProtocolMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D796C28DE08E300CD5803 /* RequestTypeProtocolMocks.swift */; };
 		381D796F28DE08FA00CD5803 /* TestingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D796E28DE08FA00CD5803 /* TestingStub.swift */; };
 		381D797228DE0A7200CD5803 /* BreedCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D797128DE0A7200CD5803 /* BreedCellViewModelTests.swift */; };
+		381D797F28DE38CE00CD5803 /* FavoriteManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D797E28DE38CE00CD5803 /* FavoriteManagerTests.swift */; };
+		381D798228DE3A2A00CD5803 /* LocalPersistenceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381D798128DE3A2A00CD5803 /* LocalPersistenceSpy.swift */; };
 		382DE43328DB353A001E88C9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43228DB353A001E88C9 /* Breed.swift */; };
 		382DE43728DB3EB2001E88C9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43628DB3EB2001E88C9 /* Extensions.swift */; };
 		382DE43928DB85EE001E88C9 /* BreedPicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382DE43828DB85EE001E88C9 /* BreedPicturesViewModel.swift */; };
@@ -92,6 +94,8 @@
 		381D796C28DE08E300CD5803 /* RequestTypeProtocolMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTypeProtocolMocks.swift; sourceTree = "<group>"; };
 		381D796E28DE08FA00CD5803 /* TestingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingStub.swift; sourceTree = "<group>"; };
 		381D797128DE0A7200CD5803 /* BreedCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCellViewModelTests.swift; sourceTree = "<group>"; };
+		381D797E28DE38CE00CD5803 /* FavoriteManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteManagerTests.swift; sourceTree = "<group>"; };
+		381D798128DE3A2A00CD5803 /* LocalPersistenceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPersistenceSpy.swift; sourceTree = "<group>"; };
 		382DE43228DB353A001E88C9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		382DE43628DB3EB2001E88C9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		382DE43828DB85EE001E88C9 /* BreedPicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				381D797028DE0A4800CD5803 /* BreedList */,
+				381D797B28DE388400CD5803 /* FavoritePictures */,
 				381D796628DE087B00CD5803 /* Networking */,
 			);
 			path = AssignmentTests;
@@ -194,6 +199,23 @@
 				381D797128DE0A7200CD5803 /* BreedCellViewModelTests.swift */,
 			);
 			path = BreedList;
+			sourceTree = "<group>";
+		};
+		381D797B28DE388400CD5803 /* FavoritePictures */ = {
+			isa = PBXGroup;
+			children = (
+				381D798028DE39F100CD5803 /* Mocks */,
+				381D797E28DE38CE00CD5803 /* FavoriteManagerTests.swift */,
+			);
+			path = FavoritePictures;
+			sourceTree = "<group>";
+		};
+		381D798028DE39F100CD5803 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				381D798128DE3A2A00CD5803 /* LocalPersistenceSpy.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		382DE43128DB3450001E88C9 /* Model */ = {
@@ -384,12 +406,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381D798228DE3A2A00CD5803 /* LocalPersistenceSpy.swift in Sources */,
 				381D796B28DE08CA00CD5803 /* MockWebService.swift in Sources */,
 				381D796928DE08AD00CD5803 /* MockRouter.swift in Sources */,
 				381D796F28DE08FA00CD5803 /* TestingStub.swift in Sources */,
 				381D797228DE0A7200CD5803 /* BreedCellViewModelTests.swift in Sources */,
 				381D796028DE086500CD5803 /* RequestTypeExecuteTests.swift in Sources */,
 				381D796D28DE08E300CD5803 /* RequestTypeProtocolMocks.swift in Sources */,
+				381D797F28DE38CE00CD5803 /* FavoriteManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

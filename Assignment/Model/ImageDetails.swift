@@ -11,6 +11,12 @@ class ImageDetails: Codable {
     }
 }
 
+extension ImageDetails: Equatable {
+    static func == (lhs: ImageDetails, rhs: ImageDetails) -> Bool {
+        return lhs.url == rhs.url
+    }
+}
+
 struct BreedImagesResponce: Decodable {
     var imagesDetails: [ImageDetails]
     
