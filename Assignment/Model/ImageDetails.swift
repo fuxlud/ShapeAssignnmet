@@ -1,6 +1,6 @@
 import Foundation
 
-class ImageDetails: Decodable {
+class ImageDetails: Codable {
     let url: URL
     var isFavorite = false
     var breedName = ""

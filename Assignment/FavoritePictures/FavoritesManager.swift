@@ -14,6 +14,20 @@ actor FavoritesManager: FavoritesManaging {
     var favoritesByBreed: [String: [ImageDetails]] = [:]
     var allFavorites: [ImageDetails] = []
     let allKey = "all"
+    let favoritesByBreedKey = "favoritesByBreed"
+    let allFavoritesKey = "allFavorites"
+    
+    private init() {
+        if let favoritesByBreedData = UserDefaults.standard.data(forKey: favoritesByBreedKey),
+           let allFavoritesData = UserDefaults.standard.data(forKey: allFavoritesKey)
+        {
+            do {
+                let decoder = JSONDecoder()
+                favoritesByBreed = try decoder.decode([String: [ImageDetails]].self, from: favoritesByBreedData)
+                allFavorites = try decoder.decode([ImageDetails].self, from: allFavoritesData)
+            } catch {}
+        }
+    }
     
     func getFavoriteBreeds() async -> [String] {
         var favoriteBreeds = [allKey]
@@ -24,11 +38,20 @@ actor FavoritesManager: FavoritesManaging {
     func like(imageDetails: ImageDetails) async {
         addImageToFavoritesByBreed(imageDetails: imageDetails)
         allFavorites.append(imageDetails)
+        updateLocalPersistance()
     }
     
     func unlike(imageDetails: ImageDetails) async {
         removeImageFromFavoritesByBreed(imageDetails: imageDetails)
         removeImageFromAllFavoritesB(imageDetails: imageDetails)
+        updateLocalPersistance()
+    }
+    
+    func images(of breedName: String) async -> [ImageDetails]? {
+        if breedName == allKey {
+            return allFavorites
+        }
+        return favoritesByBreed[breedName]
     }
     
     private func addImageToFavoritesByBreed(imageDetails: ImageDetails) {
@@ -56,10 +79,16 @@ actor FavoritesManager: FavoritesManaging {
         allFavorites = filteredAllFavorites
     }
     
-    func images(of breedName: String) async -> [ImageDetails]? {
-        if breedName == allKey {
-            return allFavorites
+    private func updateLocalPersistance() {
+        do {
+            let encoder = JSONEncoder()
+            let favoritesByBreedData = try encoder.encode(favoritesByBreed)
+            let allFavoritesData = try encoder.encode(allFavorites)
+            
+            UserDefaults.standard.set(favoritesByBreedData, forKey: favoritesByBreedKey)
+            UserDefaults.standard.set(allFavoritesData, forKey: allFavoritesKey)
+        } catch {
+            
         }
-        return favoritesByBreed[breedName]
     }
 }
