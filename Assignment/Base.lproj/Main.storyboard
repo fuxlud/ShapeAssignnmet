@@ -79,7 +79,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home Assignment" largeTitleDisplayMode="never" id="Cki-9l-oVF">
-                        <barButtonItem key="rightBarButtonItem" title="Likes" id="HJS-L2-Xik">
+                        <barButtonItem key="rightBarButtonItem" title="Favorites" id="HJS-L2-Xik">
                             <connections>
                                 <segue destination="bRb-Fy-WHi" kind="show" id="KfS-cS-8p4"/>
                             </connections>
