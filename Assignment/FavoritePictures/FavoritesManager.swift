@@ -28,7 +28,7 @@ actor FavoritesManager: FavoritesManaging {
     
     func getFavoriteBreeds() async -> [String] {
         var favoriteBreeds = [allKey]
-        favoriteBreeds.append(contentsOf: Array(favoritesByBreed.keys))
+        favoriteBreeds.append(contentsOf: Array(favoritesByBreed.keys).sorted(by: <))
         return favoriteBreeds
     }
     
