@@ -19,46 +19,31 @@ final class FavoriteManagerTests: XCTestCase {
         XCTAssertEqual(favoriteBreeds, ["all", "shuki"])
     }
     
-    func testLikingSavesImageToFavoritesByBreedToLocalPersistance() async throws {
+    func testLikingSavesImageToFavoritesByBreedToLocalStorage() async throws {
         await sut.like(imageDetails: imageDetails)
-        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalPersistanceSpy()
+        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalStorageSpy()
         XCTAssertEqual(favoritesByBreedRecorded.keys.first, "shuki")
     }
 
-    private func loadFavoritesByBreedFromLocalPersistanceSpy() -> [String: [ImageDetails]] {
+    private func loadFavoritesByBreedFromLocalStorageSpy() -> [String: [ImageDetails]] {
         let favoritesByBreedData = localStorageSpy.object(forKey: "favoritesByBreed") as! Data
         let favoritesByBreed = try! JSONDecoder().decode([String: [ImageDetails]].self,
                                                          from: favoritesByBreedData)
         return favoritesByBreed
     }
     
-    func testLikingSavesImageToLocalPersistanceSpy() async throws {
+    func testLikingSavesImageToLocalStorageSpy() async throws {
         await sut.like(imageDetails: imageDetails)
         
-        let allFavoritesRecorded = loadAllFavoritesFromLocalPersistanceSpy()
+        let allFavoritesRecorded = loadAllFavoritesFromLocalStorageSpy()
         let imageRecorded = allFavoritesRecorded.first!
         XCTAssertEqual(imageRecorded, imageDetails)
     }
-    
-    private func loadAllFavoritesFromLocalPersistanceSpy() -> [ImageDetails] {
-        let allFavoritesData = localStorageSpy.object(forKey: "allFavorites") as! Data
-        let allFavorites = try! JSONDecoder().decode([ImageDetails].self,
-                                                     from: allFavoritesData)
-        return allFavorites
-    }
-
-    func testUnlikingRemovesImageImageToLocalPersistanceSpy() async throws {
+  
+    func testUnLikingRemovesImageFromFavoritesByBreedInLocalStorage() async throws {
         await sut.like(imageDetails: imageDetails)
         await sut.unlike(imageDetails: imageDetails)
-        let allFavoritesRecorded = loadAllFavoritesFromLocalPersistanceSpy()
-        
-        XCTAssertEqual(allFavoritesRecorded.count, 0)
-    }
-    
-    func testUnLikingRemovesImageFromFavoritesByBreedInLocalPersistance() async throws {
-        await sut.like(imageDetails: imageDetails)
-        await sut.unlike(imageDetails: imageDetails)
-        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalPersistanceSpy()
+        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalStorageSpy()
         XCTAssertEqual(favoritesByBreedRecorded.keys.count, 0)
     }
     

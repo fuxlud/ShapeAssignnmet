@@ -13,7 +13,6 @@ actor FavoritesManager: FavoritesManaging {
     
     let allKey = "all"
     let favoritesByBreedKey = "favoritesByBreed"
-    let allFavoritesKey = "allFavorites"
     
     private(set) var favoritesByBreed: [String: [ImageDetails]] = [:]
     private(set) var allFavorites: [ImageDetails] = []
@@ -22,7 +21,8 @@ actor FavoritesManager: FavoritesManaging {
     init(localStorage: LocalStorage = UserDefaults.standard ) {
         self.localStorage = localStorage
         Task {
-            await loadFavoritesFromLocalPersistance()
+            await loadFavoritesFromLocalStorage()
+            await loadAllFavoritesFromFavoritesByBreed()
         }
     }
     
@@ -35,13 +35,13 @@ actor FavoritesManager: FavoritesManaging {
     func like(imageDetails: ImageDetails) async {
         addImageToFavoritesByBreed(imageDetails: imageDetails)
         allFavorites.append(imageDetails)
-        updateLocalPersistance()
+        updateLocalStorage()
     }
     
     func unlike(imageDetails: ImageDetails) async {
         removeImageFromFavoritesByBreed(imageDetails: imageDetails)
-        removeImageFromAllFavoritesB(imageDetails: imageDetails)
-        updateLocalPersistance()
+        removeImageFromAllFavorites(imageDetails: imageDetails)
+        updateLocalStorage()
     }
     
     func images(of breedName: String) async -> [ImageDetails]? {
@@ -71,33 +71,31 @@ actor FavoritesManager: FavoritesManaging {
         }
     }
     
-    private func removeImageFromAllFavoritesB(imageDetails: ImageDetails) {
+    private func removeImageFromAllFavorites(imageDetails: ImageDetails) {
         let filteredAllFavorites = allFavorites.filter { $0.url != imageDetails.url }
         allFavorites = filteredAllFavorites
     }
     
-    private func updateLocalPersistance() {
+    private func updateLocalStorage() {
         do {
-            let encoder = JSONEncoder()
-            let favoritesByBreedData = try encoder.encode(favoritesByBreed)
-            let allFavoritesData = try encoder.encode(allFavorites)
-            
+            let favoritesByBreedData = try JSONEncoder().encode(favoritesByBreed)            
             localStorage.set(favoritesByBreedData, forKey: favoritesByBreedKey)
-            localStorage.set(allFavoritesData, forKey: allFavoritesKey)
-        } catch {
-            
-        }
+        } catch {}
     }
     
-    private func loadFavoritesFromLocalPersistance() {
-        if let favoritesByBreedData = localStorage.data(forKey: favoritesByBreedKey),
-           let allFavoritesData = localStorage.data(forKey: allFavoritesKey)
+    private func loadFavoritesFromLocalStorage() {
+        if let favoritesByBreedData = localStorage.data(forKey: favoritesByBreedKey)
         {
             do {
                 let decoder = JSONDecoder()
                 favoritesByBreed = try decoder.decode([String: [ImageDetails]].self, from: favoritesByBreedData)
-                allFavorites = try decoder.decode([ImageDetails].self, from: allFavoritesData)
             } catch {}
+        }
+    }
+    
+    private func loadAllFavoritesFromFavoritesByBreed() {
+        for dic in favoritesByBreed {
+            allFavorites.append(contentsOf: dic.value)
         }
     }
 }
