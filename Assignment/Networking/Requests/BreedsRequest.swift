@@ -11,7 +11,7 @@ extension WebService: DogsService {
         let result = try await request.execute(on: router)
 
         if let breedsContainer = result as? BreedsRespose {
-            let breeds = breedsContainer.message.breeds
+            let breeds = breedsContainer.message.breeds.sorted{ $0.name < $1.name }
             return breeds
         } else {
             throw NetworkError.parcingError
