@@ -17,7 +17,7 @@ extension ImageDetails: Equatable {
     }
 }
 
-struct BreedImagesResponce: Decodable {
+struct BreedImagesResponse: Decodable {
     var imagesDetails: [ImageDetails]
     
     enum CodingKeys: String, CodingKey {

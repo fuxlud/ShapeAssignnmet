@@ -12,7 +12,7 @@ extension WebService: DogImagesService {
         
         let result = try await request.execute(on: router)
         
-        if let imagesContainer = result as? BreedImagesResponce {
+        if let imagesContainer = result as? BreedImagesResponse {
             let imagesDetails = imagesContainer.imagesDetails
             
             if let favoriteImagesOfBreed = await favoritesManager.images(of: breed.name) {
@@ -36,7 +36,7 @@ extension WebService: DogImagesService {
 }
 
 struct BreedImagesRequest: RequestTypeProtocol {
-    typealias ResponseType = BreedImagesResponce
+    typealias ResponseType = BreedImagesResponse
 
     let breed: Breed
     
