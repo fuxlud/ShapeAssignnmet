@@ -10,7 +10,7 @@ extension WebService: DogsService {
 
         let result = try await request.execute(on: router)
 
-        if let breedsContainer = result as? BreedsRespose {
+        if let breedsContainer = result as? BreedsResponse {
             let breeds = breedsContainer.message.breeds.sorted{ $0.name < $1.name }
             return breeds
         } else {
@@ -20,7 +20,7 @@ extension WebService: DogsService {
 }
 
 struct BreedRequest: RequestTypeProtocol {
-    typealias ResponseType = BreedsRespose
+    typealias ResponseType = BreedsResponse
 
     var request: Request {
         var components = URLComponents()

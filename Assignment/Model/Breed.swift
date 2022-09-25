@@ -36,6 +36,6 @@ class Breed: Decodable {
     }
 }
 
-struct BreedsRespose: Decodable {
+struct BreedsResponse: Decodable {
     let message: Breeds
 }
