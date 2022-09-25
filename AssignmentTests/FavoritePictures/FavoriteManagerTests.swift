@@ -31,14 +31,6 @@ final class FavoriteManagerTests: XCTestCase {
                                                          from: favoritesByBreedData)
         return favoritesByBreed
     }
-    
-    func testLikingSavesImageToLocalStorageSpy() async throws {
-        await sut.like(imageDetails: imageDetails)
-        
-        let allFavoritesRecorded = loadAllFavoritesFromLocalStorageSpy()
-        let imageRecorded = allFavoritesRecorded.first!
-        XCTAssertEqual(imageRecorded, imageDetails)
-    }
   
     func testUnLikingRemovesImageFromFavoritesByBreedInLocalStorage() async throws {
         await sut.like(imageDetails: imageDetails)
