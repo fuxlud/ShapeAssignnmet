@@ -1,7 +1,7 @@
 import XCTest
 @testable import Assignment
 
-class LocalPersistenceSpy: LocalPersistence {
+class LocalStorageSpy: LocalStorage {
     
     var observedDictionary: [String: Any?] = [:]
     

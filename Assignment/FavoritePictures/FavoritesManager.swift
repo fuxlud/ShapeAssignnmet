@@ -17,10 +17,10 @@ actor FavoritesManager: FavoritesManaging {
     
     private(set) var favoritesByBreed: [String: [ImageDetails]] = [:]
     private(set) var allFavorites: [ImageDetails] = []
-    private let localPersistence: LocalPersistence
+    private let localStorage: LocalStorage
     
-    init(localPersistence: LocalPersistence = UserDefaults.standard ) {
-        self.localPersistence = localPersistence
+    init(localStorage: LocalStorage = UserDefaults.standard ) {
+        self.localStorage = localStorage
         Task {
             await loadFavoritesFromLocalPersistance()
         }
@@ -82,16 +82,16 @@ actor FavoritesManager: FavoritesManaging {
             let favoritesByBreedData = try encoder.encode(favoritesByBreed)
             let allFavoritesData = try encoder.encode(allFavorites)
             
-            localPersistence.set(favoritesByBreedData, forKey: favoritesByBreedKey)
-            localPersistence.set(allFavoritesData, forKey: allFavoritesKey)
+            localStorage.set(favoritesByBreedData, forKey: favoritesByBreedKey)
+            localStorage.set(allFavoritesData, forKey: allFavoritesKey)
         } catch {
             
         }
     }
     
     private func loadFavoritesFromLocalPersistance() {
-        if let favoritesByBreedData = localPersistence.data(forKey: favoritesByBreedKey),
-           let allFavoritesData = localPersistence.data(forKey: allFavoritesKey)
+        if let favoritesByBreedData = localStorage.data(forKey: favoritesByBreedKey),
+           let allFavoritesData = localStorage.data(forKey: allFavoritesKey)
         {
             do {
                 let decoder = JSONDecoder()

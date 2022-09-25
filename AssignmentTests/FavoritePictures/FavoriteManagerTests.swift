@@ -4,12 +4,12 @@ import XCTest
 final class FavoriteManagerTests: XCTestCase {
 
     var sut: FavoritesManager!
-    let localPersistenceSpy = LocalPersistenceSpy()
+    let localStorageSpy = LocalStorageSpy()
     let imageDetails = ImageDetails(url: URL(string: "www.shape.dk")!)
     let breedName = "shuki"
     
     override func setUpWithError() throws {
-        sut = FavoritesManager(localPersistence: localPersistenceSpy)
+        sut = FavoritesManager(localStorage: localStorageSpy)
         imageDetails.breedName = breedName
     }
 
@@ -26,7 +26,7 @@ final class FavoriteManagerTests: XCTestCase {
     }
 
     private func loadFavoritesByBreedFromLocalPersistanceSpy() -> [String: [ImageDetails]] {
-        let favoritesByBreedData = localPersistenceSpy.object(forKey: "favoritesByBreed") as! Data
+        let favoritesByBreedData = localStorageSpy.object(forKey: "favoritesByBreed") as! Data
         let favoritesByBreed = try! JSONDecoder().decode([String: [ImageDetails]].self,
                                                          from: favoritesByBreedData)
         return favoritesByBreed
@@ -41,7 +41,7 @@ final class FavoriteManagerTests: XCTestCase {
     }
     
     private func loadAllFavoritesFromLocalPersistanceSpy() -> [ImageDetails] {
-        let allFavoritesData = localPersistenceSpy.object(forKey: "allFavorites") as! Data
+        let allFavoritesData = localStorageSpy.object(forKey: "allFavorites") as! Data
         let allFavorites = try! JSONDecoder().decode([ImageDetails].self,
                                                      from: allFavoritesData)
         return allFavorites
