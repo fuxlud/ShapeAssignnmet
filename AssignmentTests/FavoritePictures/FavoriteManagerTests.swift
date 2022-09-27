@@ -4,12 +4,12 @@ import XCTest
 final class FavoriteManagerTests: XCTestCase {
 
     var sut: FavoritesManager!
-    let localStorageSpy = LocalStorageSpy()
+    let persistenceSpy = PersistenceSpy()
     let imageDetails = ImageDetails(url: URL(string: "www.shape.dk")!)
     let breedName = "shuki"
     
     override func setUpWithError() throws {
-        sut = FavoritesManager(localStorage: localStorageSpy)
+        sut = FavoritesManager(persistence: persistenceSpy)
         imageDetails.breedName = breedName
     }
 
@@ -19,14 +19,14 @@ final class FavoriteManagerTests: XCTestCase {
         XCTAssertEqual(favoriteBreeds, ["all", "shuki"])
     }
     
-    func testLikingSavesImageToFavoritesByBreedToLocalStorage() async throws {
+    func testLikingSavesImageToFavoritesByBreedInLocalStorage() async throws {
         await sut.like(imageDetails: imageDetails)
-        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalStorageSpy()
+        let favoritesByBreedRecorded = loadFavoritesByBreedFromPersistenceSpy()
         XCTAssertEqual(favoritesByBreedRecorded.keys.first, "shuki")
     }
 
-    private func loadFavoritesByBreedFromLocalStorageSpy() -> [String: [ImageDetails]] {
-        let favoritesByBreedData = localStorageSpy.object(forKey: "favoritesByBreed") as! Data
+    private func loadFavoritesByBreedFromPersistenceSpy() -> [String: [ImageDetails]] {
+        let favoritesByBreedData = persistenceSpy.object(forKey: "favoritesByBreed") as! Data
         let favoritesByBreed = try! JSONDecoder().decode([String: [ImageDetails]].self,
                                                          from: favoritesByBreedData)
         return favoritesByBreed
@@ -35,7 +35,7 @@ final class FavoriteManagerTests: XCTestCase {
     func testUnLikingRemovesImageFromFavoritesByBreedInLocalStorage() async throws {
         await sut.like(imageDetails: imageDetails)
         await sut.unlike(imageDetails: imageDetails)
-        let favoritesByBreedRecorded = loadFavoritesByBreedFromLocalStorageSpy()
+        let favoritesByBreedRecorded = loadFavoritesByBreedFromPersistenceSpy()
         XCTAssertEqual(favoritesByBreedRecorded.keys.count, 0)
     }
     
